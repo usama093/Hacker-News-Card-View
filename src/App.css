@@ -1,7 +1,15 @@
-.App {
-  text-align: center;
+.card-header {
+  display: flex;
+  flex-direction: row;
+  min-height: 106px;
 }
-
+.card-header-title {
+  flex-direction: column;
+  flex: 4;
+}
+.card-header-score {
+  flex: 1;
+}
 .App-logo {
   height: 40vmin;
 }
@@ -19,4 +27,24 @@
 
 .App-link {
   color: #09d3ac;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 250px;
+  grid-gap: 10px;
+}
+
+.card {
+  margin: 10px 10px;
+}
+.active {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
 }
