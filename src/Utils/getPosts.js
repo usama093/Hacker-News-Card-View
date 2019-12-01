@@ -11,7 +11,11 @@ export function usePosts() {
       let getPostsUrl = [];
       let postPromises = [];
       let postsId = await axios(getPostsIdUrl); //This API call will only return Id's of top stories
-      if (postsId.status >= 400) throw new Error("something went wrong");
+      if (postsId.status >= 400) {
+        setIsError(true);
+        return [[], isError];
+        //throw new Error("something went wrong");
+      }
       postsId = postsId.data.slice(0, 24); // Only using partiall data for demo purpose otherwise Pagination should be used
       getPostsUrl = postsId.map(postID => {
         return `${baseUrl}${postID}.json`;
@@ -22,13 +26,10 @@ export function usePosts() {
       // Using Axios concurrent requests to get posts
       axios
         .all(postPromises)
-        .then(
-          axios.spread((...posts) => {
-            setPosts(posts);
-          })
-        )
+        .then(posts => {
+          setPosts(posts);
+        })
         .catch(errors => {
-          console.log(errors);
           setIsError(true);
         });
     };

@@ -17,8 +17,9 @@ function App() {
   return (
     <div className="App">
       <NavBar></NavBar>
-      {isError && <p>Something went wrong...</p>}
-      {posts ? (
+      {isError ? (
+        <p>Something went wrong...</p>
+      ) : posts ? (
         <section className="cards">{postsList}</section>
       ) : (
         <Spinner></Spinner>
