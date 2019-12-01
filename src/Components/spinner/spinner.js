@@ -1,6 +1,6 @@
 import React from "react";
-
-const SpinnerPage = () => {
+import "./spinner.css";
+export const Spinner = () => {
   return (
     <>
       <div className="spinner">
@@ -11,5 +11,3 @@ const SpinnerPage = () => {
     </>
   );
 };
-
-export default SpinnerPage;

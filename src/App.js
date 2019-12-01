@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import CardView from "./Components/cardView";
-import NavBar from "./Components/navBar";
-import SpinnerPage from "./Components/spinnerPage";
+import { CardView } from "./Components/cardView";
+import { NavBar } from "./Components/navBar";
+import { Spinner } from "./Components/spinner/spinner";
 import { getPostsIdUrl } from "./Utils/constants";
 import axios from "axios";
 
@@ -52,7 +52,7 @@ function App() {
       {posts ? (
         <section className="cards">{postsList}</section>
       ) : (
-        <SpinnerPage></SpinnerPage>
+        <Spinner></Spinner>
       )}
     </div>
   );

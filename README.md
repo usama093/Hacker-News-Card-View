@@ -1,4 +1,4 @@
-# Coding Task
+# Card View of Hacker News
 
 ### `yarn start`
 
